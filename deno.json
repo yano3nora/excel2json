@@ -1,5 +1,5 @@
 {
-  "name": "@y3n/excel2json",
+  "name": "@yano3nora/excel2json",
   "version": "0.0.1",
   "exports": "./main.ts",
   "tasks": {
