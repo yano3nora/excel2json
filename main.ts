@@ -3,9 +3,7 @@ import { excel2json } from './mods.ts'
 import { extname } from 'jsr:@std/path'
 
 if (Deno.args.length === 0) {
-  console.error(
-    'Usage: deno run --allow-read --allow-write main.ts <file-path>',
-  )
+  console.error('Invalid args as path/to/file.xlsx')
   Deno.exit(1)
 }
 
