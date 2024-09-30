@@ -1,5 +1,19 @@
 {
   "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@std/assert": "jsr:@std/assert@1.0.6",
+      "jsr:@std/internal@^1.0.4": "jsr:@std/internal@1.0.4"
+    },
+    "jsr": {
+      "@std/assert@1.0.6": {
+        "dependencies": [
+          "jsr:@std/internal@^1.0.4"
+        ]
+      },
+      "@std/internal@1.0.4": {}
+    }
+  },
   "remote": {
     "https://cdn.sheetjs.com/xlsx-0.20.3/package/xlsx.mjs": "1a0fb062ee9781b13f6687371b202aaefc53b6ce55b530c027e01f9c087b77db",
     "https://deno.land/std@0.130.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",

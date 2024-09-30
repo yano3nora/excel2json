@@ -1,4 +1,4 @@
-import { assertEquals } from 'https://deno.land/std@0.216.0/assert/mod.ts'
+import { assertEquals } from 'jsr:@std/assert'
 import { excel2json } from './mods.ts'
 
 Deno.test('excel2json', async () => {

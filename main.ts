@@ -1,6 +1,6 @@
 import { saveJson } from './mods.ts'
 import { excel2json } from './mods.ts'
-import { extname } from 'https://deno.land/std@0.130.0/path/mod.ts'
+import { extname } from 'jsr:@std/path'
 
 if (Deno.args.length === 0) {
   console.error(
