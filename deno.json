@@ -1,0 +1,17 @@
+{
+  "name": "@y3n/excel2json",
+  "version": "0.0.1",
+  "exports": "./main.ts",
+  "tasks": {
+    "dev": "deno test -A --watch"
+  },
+  "fmt": {
+    "exclude": [
+      "README.md"
+    ],
+    "options": {
+      "singleQuote": true,
+      "semiColons": false
+    }
+  }
+}
