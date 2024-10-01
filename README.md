@@ -25,7 +25,7 @@ $ excel2json data.xlsx dest.json --leftkey
 $ deno task dev
 
 # execute main cli
-$ deno task main
+$ deno task main data.xlsx
 
 # release
 $ git push # => create new release & tag on github
