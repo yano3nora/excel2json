@@ -2,22 +2,36 @@ import { saveJson } from './mods.ts'
 import { excel2json } from './mods.ts'
 import { extname } from 'jsr:@std/path'
 
-if (Deno.args.length === 0) {
-  console.error('Invalid args as path/to/file.xlsx')
+const paths = Deno.args.filter((s) => !s.startsWith('--'))
+const args = Deno.args.filter((s) => s.startsWith('--'))
+const src = paths.at(0)
+const dest = paths.at(1)
+
+if (
+  !src ||
+  !(await Deno.stat(src)).isFile
+) {
+  console.error('No path/to/file.xlsx was given.')
   Deno.exit(1)
 }
 
-const filePath = Deno.args[0]
+excel2json(src, args).then(async (json) => {
+  const destPath = dest || src.replace(extname(src), '.json')
+  const destInfo = await Deno.stat(destPath)
 
-excel2json(filePath).then((json) => {
-  if (!json) {
-    console.info('No data.')
-    Deno.exit(0)
+  if (
+    args.includes('--no-override') &&
+    (
+      destInfo.isFile ||
+      destInfo.isDirectory
+    )
+  ) {
+    console.error('Abort override by arg of --no-override.')
+    Deno.exit(1)
   }
 
-  const pathToJson = Deno.args[1]
-    ? String(Deno.args[1])
-    : filePath.replace(extname(filePath), '') + '.json'
+  await saveJson(json || '', destPath)
 
-  saveJson(json, pathToJson)
+  console.info('Generated to: ' + (await Deno.realPath(destPath)))
+  Deno.exit(0)
 })

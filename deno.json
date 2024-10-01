@@ -1,9 +1,10 @@
 {
   "name": "@yano3nora/excel2json",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": "./main.ts",
   "tasks": {
-    "dev": "deno test -A --watch"
+    "dev": "deno test -A --watch",
+    "main": "deno run --allow-read --allow-write main.ts"
   },
   "fmt": {
     "exclude": [
