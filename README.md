@@ -43,16 +43,16 @@ GoReleaser handles cross-compilation, archives, checksums, and the GitHub Releas
 
 ```sh
 # 1. Bump deno.json and validate tests plus every release artifact locally.
-$ mise run release:prepare -- 0.0.3
+$ mise run release:prepare -- 0.1.0
 
 # 2. Review the result, then commit and tag it yourself.
 $ git diff
 $ git add deno.json
-$ git commit -m "Release v0.0.3"
+$ git commit -m "Release v0.1.0"
 $ git tag v0.0.3
 
 # 3. Human-only: push the commit/tag and create the GitHub Release.
-$ mise run release:publish -- 0.0.3 --i-understand-this-pushes-and-publishes
+$ mise run release:publish -- 0.1.0 --i-understand-this-pushes-and-publishes
 ```
 
 `release:publish` stops unless the tree is clean, `deno.json` matches the requested version, and the

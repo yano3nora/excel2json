@@ -1,6 +1,6 @@
 {
   "name": "@yano3nora/excel2json",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "exports": "./main.ts",
   "imports": {
     "@std/assert": "jsr:@std/assert@^1.0.19",
