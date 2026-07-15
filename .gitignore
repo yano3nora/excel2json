@@ -6,6 +6,7 @@
 ### CUSTOM ###
 npm
 .envrc
+/excel2json
 !.vscode/settings.json
 
 # Created by https://www.toptal.com/developers/gitignore/api/linux,macos,windows,visualstudiocode,sublimetext,node,python,ruby,firebase,unity,csharp

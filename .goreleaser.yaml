@@ -1,0 +1,40 @@
+# GoReleaser owns only compilation, archives, checksums, and GitHub Release creation.
+# Version preparation, validation, and the explicit human publish gate live in scripts/release.ts.
+version: 2
+
+project_name: excel2json
+
+builds:
+  - builder: deno
+    main: main.ts
+    binary: excel2json
+    # Keep these permissions aligned with the compile task in deno.json.
+    flags:
+      - --allow-read
+      - --allow-write
+      # Deno 2 requires explicit build-time access for the existing HTTPS imports.
+      - --allow-import=cdn.sheetjs.com,deno.land,jsr.io
+    targets:
+      - x86_64-unknown-linux-gnu
+      - aarch64-unknown-linux-gnu
+      - x86_64-apple-darwin
+      - aarch64-apple-darwin
+      - x86_64-pc-windows-msvc
+
+archives:
+  - name_template: >-
+      {{ .ProjectName }}-v{{ .Version }}-{{ if eq .Os "darwin" }}macos{{ else }}{{ .Os }}{{ end }}-{{ if eq .Arch "amd64" }}x64{{ else }}{{ .Arch }}{{ end }}
+    formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    # Put only the executable at the archive root for direct use by binary installers.
+    files:
+      - none*
+
+checksum:
+  algorithm: sha256
+  split: true
+
+changelog:
+  use: github-native

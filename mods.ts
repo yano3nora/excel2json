@@ -1,9 +1,6 @@
 // @deno-types="https://cdn.sheetjs.com/xlsx-0.20.3/package/types/index.d.ts"
-import xlsx from 'https://cdn.sheetjs.com/xlsx-0.20.3/package/xlsx.mjs'
-import {
-  objectByKeys,
-  objects2object,
-} from 'https://deno.land/x/yano3nora_tsutils@v0.29.0/main.ts'
+import * as xlsx from 'xlsx'
+import { objectByKeys, objects2object } from 'tsutils'
 
 export const excel2json = async (filePath: string, args: string[]) => {
   try {

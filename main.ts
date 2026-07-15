@@ -1,6 +1,6 @@
 import { saveJson } from './mods.ts'
 import { excel2json } from './mods.ts'
-import { extname } from 'jsr:@std/path'
+import { extname } from '@std/path'
 
 const paths = Deno.args.filter((s) => !s.startsWith('--'))
 const args = Deno.args.filter((s) => s.startsWith('--'))

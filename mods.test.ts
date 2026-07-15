@@ -1,4 +1,4 @@
-import { assertEquals } from 'jsr:@std/assert'
+import { assertEquals } from '@std/assert'
 import { excel2json } from './mods.ts'
 
 Deno.test('excel2json', async () => {
