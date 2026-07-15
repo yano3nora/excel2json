@@ -1,6 +1,14 @@
-import { saveJson } from './mods.ts'
-import { excel2json } from './mods.ts'
-import { extname } from '@std/path'
+import denoConfig from './deno.json' with { type: 'json' }
+
+if (Deno.args.includes('--version')) {
+  console.info(denoConfig.version)
+  Deno.exit(0)
+}
+
+// Keep dependency loading out of the version path so installed metadata can be
+// inspected even when source-mode import access is unavailable.
+const { saveJson, excel2json } = await import('./mods.ts')
+const { extname } = await import('@std/path')
 
 const paths = Deno.args.filter((s) => !s.startsWith('--'))
 const args = Deno.args.filter((s) => s.startsWith('--'))

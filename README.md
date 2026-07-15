@@ -9,6 +9,9 @@
 # install the latest prebuilt binary with mise
 $ mise use -g github:yano3nora/excel2json
 
+# print the installed version
+$ excel2json --version
+
 # to generate data.json
 $ excel2json data.xlsx
 
