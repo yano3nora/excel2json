@@ -49,7 +49,7 @@ $ mise run release:prepare -- 0.1.0
 $ git diff
 $ git add deno.json
 $ git commit -m "Release v0.1.0"
-$ git tag v0.0.3
+$ git tag v0.1.0
 
 # 3. Human-only: push the commit/tag and create the GitHub Release.
 $ mise run release:publish -- 0.1.0 --i-understand-this-pushes-and-publishes
